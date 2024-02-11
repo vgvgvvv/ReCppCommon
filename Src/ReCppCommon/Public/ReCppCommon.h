@@ -1,7 +1,2 @@
 #pragma once
-
-class ReCppCommon
-{
-
-};
-
+#include "CommonPrefix.h"
