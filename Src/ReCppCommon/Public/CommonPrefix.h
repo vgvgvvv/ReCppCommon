@@ -3,6 +3,9 @@
 #include <map>
 #include <mutex>
 #include <vector>
+#include <iostream>
+
+#include "Log/Logger.h"
 
 #if USE_REMAKE
 #include "ReCppCommon_API.h"
@@ -93,10 +96,9 @@ namespace Re
 #define RE_MAKE_UNIQUE(T) std::make_unique<T>
 
 #define RE_ASSERT(x) assert(x)
-#define RE_LOG(x) printf("%s", x); printf("\n");
-#define RE_LOG_F(fmt, ...) printf(fmt, __VA_ARGS__); printf("\n");
-#define RE_ERROR(x) printf("%s", x); printf("\n");
-#define RE_ERROR_F(fmt, ...) printf(fmt, __VA_ARGS__); printf("\n");
+#define RE_LOG(x) ILogger::Get().Log(x);
+#define RE_WARN(x) ILogger::Get().Warn(x);
+#define RE_ERROR(x) ILogger::Get().Error(x);
 #define RE_MOVE(x) std::move(x)
 
 }
