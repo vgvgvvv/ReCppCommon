@@ -4,9 +4,9 @@ class DefaultLogger : public ILogger
 {
 	using LogFunc = void(*)(const Re::String&);
 public:
-	void Log(const Re::String& info) override;
-	void Warn(const Re::String& info) override;
-	void Error(const Re::String& info) override;
+	void Log(Re::String info) override;
+	void Warn(Re::String info) override;
+	void Error(Re::String info) override;
 
 private:
 	LogFunc OnLog = nullptr;
@@ -15,7 +15,7 @@ private:
 
 };
 
-void DefaultLogger::Log(const Re::String& info)
+void DefaultLogger::Log(Re::String info)
 {
 	if(OnLog)
 	{
@@ -27,7 +27,7 @@ void DefaultLogger::Log(const Re::String& info)
 	}
 }
 
-void DefaultLogger::Warn(const Re::String& info)
+void DefaultLogger::Warn(Re::String info)
 {
 	if(OnWarn)
 	{
@@ -39,7 +39,7 @@ void DefaultLogger::Warn(const Re::String& info)
 	}
 }
 
-void DefaultLogger::Error(const Re::String& info)
+void DefaultLogger::Error(Re::String info)
 {
 	if(OnError)
 	{
@@ -51,7 +51,7 @@ void DefaultLogger::Error(const Re::String& info)
 	}
 }
 
-const ILogger& ILogger::Get()
+ILogger& ILogger::Get()
 {
 	static DefaultLogger logger;
 	return logger;
