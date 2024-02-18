@@ -3,7 +3,11 @@
 #include <map>
 #include <mutex>
 #include <vector>
+#include <stack>
+#include <queue>
 #include <iostream>
+#include <cassert>
+#include <functional>
 
 #include "Log/Logger.h"
 
@@ -46,6 +50,10 @@ namespace Re
 	using Map = std::map<K, V>;
 	template<typename Item1, typename Item2>
 	using Pair = std::pair<Item1, Item2>;
+	template<typename T>
+	using Queue = std::queue<T>;
+	template<typename T>
+	using Stack = std::stack<T>;
 
 #define RE_MAKE_PAIR std::make_pair
 #define RE_GET_FROM_PAIR(PAIR, COUNT) std::get<COUNT>(PAIR)
