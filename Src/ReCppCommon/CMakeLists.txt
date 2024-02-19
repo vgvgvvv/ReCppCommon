@@ -4,5 +4,4 @@ ReMake_AddTarget(
     TARGET_NAME ${TargetName}
     MODE SHARED
     INC "Public"
-    PCH "Public/CommonPrefix.h"
 )
