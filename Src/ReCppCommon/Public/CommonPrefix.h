@@ -9,8 +9,6 @@
 #include <cassert>
 #include <functional>
 
-#include "Log/Logger.h"
-
 #if USE_REMAKE
 #include "ReCppCommon_API.h"
 #endif
@@ -112,3 +110,6 @@ namespace Re
 }
 
 
+#include "Log/Logger.h"
+#include "Log/Assert.h"
+#include "Macro/CoreMacros.h"
