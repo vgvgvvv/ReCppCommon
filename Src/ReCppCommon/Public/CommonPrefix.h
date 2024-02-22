@@ -12,6 +12,7 @@
 #include <cstdarg>
 #include <utility>
 #include <filesystem>
+#include <fstream>
 
 #if USE_REMAKE
 #include "ReCppCommon_API.h"
