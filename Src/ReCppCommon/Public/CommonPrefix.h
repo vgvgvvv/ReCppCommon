@@ -10,6 +10,8 @@
 #include <functional>
 #include <cstdio>
 #include <cstdarg>
+#include <utility>
+#include <filesystem>
 
 #if USE_REMAKE
 #include "ReCppCommon_API.h"
@@ -79,7 +81,7 @@ namespace Re
 	}
 
 	template<typename TTo, typename TFrom>
-	RE_INLINE SharedPtr<TTo>* SharedPtrCast(const SharedPtr<TFrom>& Ptr)
+	RE_INLINE SharedPtr<TTo> SharedPtrCast(const SharedPtr<TFrom>& Ptr)
 	{
 		return std::static_pointer_cast<TTo>(Ptr);
 	}
