@@ -65,7 +65,13 @@ namespace Re
 
 	template<typename T>
 	using SharedPtr = std::shared_ptr<T>;
-#define RE_MAKE_SHARED(T) std::make_shared<T>
+		
+	template<class T, class ... Ts>
+	SharedPtr<T> MakeShared(Ts&& ... args)
+	{
+		return SharedPtr<T>(new T(std::forward<Ts>(args)...));
+	}
+
 	template<typename T>
 	RE_INLINE T* SharedPtrGet(const SharedPtr<T>& Ptr)
 	{
@@ -101,7 +107,28 @@ namespace Re
 	template<typename T>
 	using UniquePtr = std::unique_ptr<T>;
 
-#define RE_MAKE_UNIQUE(T) std::make_unique<T>
+	template<typename T>
+	RE_INLINE bool UniquePtrValid(const UniquePtr<T>& Ptr)
+	{
+		return Ptr != nullptr;
+	}
+
+	template<typename T>
+	RE_INLINE T* UniquePtrGet(const UniquePtr<T>& Ptr)
+	{
+		if(!UniquePtrValid(Ptr))
+		{
+			return nullptr;
+		}
+		return Ptr.get();
+	}
+
+	template<class T, class ... Ts>
+	UniquePtr<T> MakeUnique(Ts&& ... args)
+	{
+		return UniquePtr<T>(new T(std::forward<Ts>(args)...));
+	}
+
 
 
 #define RE_MOVE(x) std::move(x)
