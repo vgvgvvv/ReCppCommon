@@ -8,7 +8,8 @@
 #include <iostream>
 #include <cassert>
 #include <functional>
-
+#include <cstdio>
+#include <cstdarg>
 
 #if USE_REMAKE
 #include "ReCppCommon_API.h"
@@ -102,15 +103,12 @@ namespace Re
 
 #define RE_MAKE_UNIQUE(T) std::make_unique<T>
 
-#define RE_ASSERT(x) assert(x)
-#define RE_LOG(x) ILogger::Get().Log((x));
-#define RE_WARN(x) ILogger::Get().Warn(x);
-#define RE_ERROR(x) ILogger::Get().Error(x);
+
 #define RE_MOVE(x) std::move(x)
 
 }
 
-
+#include "Misc/StringHelper.h"
 #include "Log/Logger.h"
 #include "Log/Assert.h"
 #include "Macro/CoreMacros.h"
